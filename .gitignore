@@ -1,0 +1,26 @@
+# 微信小程序特有的忽略文件
+/miniprogram_npm/
+/dist/
+/node_modules/
+/typings/
+**/*.log
+
+# 编译产物
+/**/*.js
+/**/*.json
+/**/*.wxml
+/**/*.wxss
+
+
+# 本地配置文件
+/project.private.config.json
+
+# VS Code 配置
+/.vscode/
+
+# 缓存和临时文件
+*.tmp
+*.temp
+
+# 指定忽略后端文件夹
+/后端/
