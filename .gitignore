@@ -2,18 +2,8 @@
 /miniprogram_npm/
 /dist/
 /node_modules/
-/typings/
 **/*.log
 
-# 编译产物
-/**/*.js
-/**/*.json
-/**/*.wxml
-/**/*.wxss
-
-
-# 本地配置文件
-/project.private.config.json
 
 # VS Code 配置
 /.vscode/

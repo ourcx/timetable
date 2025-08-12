@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="header">
+    <image src="/pubilc/logo@2x.png" mode="aspectFill" />
+  </view>
+  <view class="login">
+    <view class="form-item">
+      <image src="/pubilc/用户.png" mode="aspectFit" />
+      <input type="text" placeholder="请输入学号" model:value="{{stuId}}" />
+    </view>
+    <view class="form-item">
+      <image src="/pubilc/分组 1.png" mode="aspectFit" />
+      <input type="password" placeholder="请输入密码" model:value="{{password}}" />
+    </view>
+    <view class="checkbox-item" bindtap="switchStatus">
+      <checkbox checked="{{check}}" class="theme"></checkbox>
+      <view class="margin-left-sm">
+        记住账号密码(仅在本地缓存，不上传服务器)
+      </view>
+    </view>
+    <button bind:tap="login" class="cu-btn ">登录</button>
+  </view>
+</view>

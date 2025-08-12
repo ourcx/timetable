@@ -1,0 +1,14 @@
+{
+  "name": "list",
+  "version": "1.0.0",
+  "description": "一个集成课表查询和试卷查询功能的小程序",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "小海",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.11.7"
+  }
+}

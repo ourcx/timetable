@@ -1,0 +1,26 @@
+page{
+    --theme: #5DEFE5;
+    --theme-light: #E5F2FF;
+    --theme-dark: #004D99;
+    --theme-text: #FFFFFF;
+    --theme-text-light: #000000;
+    --theme-text-dark: #FFFFFF;
+    --theme-border: #D8D8D8;
+    --theme-background: #FFFFFF;
+    --theme-background-light: #F5F5F5;
+    --theme-background-dark: #E5E5E5;
+    --theme-shadow: #D8D8D8;
+    --theme-shadow-light: #E5E5E5;
+    --theme-shadow-dark: #D8D8D8;
+    --theme-shadow-text: #000000;
+    --theme-shadow-text-light: #FFFFFF;
+    --theme-shadow-text-dark: #000000;
+    --theme-shadow-text-opacity: 0.5;
+    --theme-shadow-text-opacity-light: 0.25;
+    --theme-shadow-text-opacity-dark: 0.75;
+}
+
+@import "./colorui/main.wxss";
+@import "./colorui/icon.wxss";
+@import "./colorui/animation.wxss";
+@import "./reset.wxss"; 
