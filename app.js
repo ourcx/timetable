@@ -24,7 +24,7 @@ App({
     if (key === '') {
       return localConfigs
     }
-    if (key in localConfigs) {
+    if (!localConfigs[key]) {
       console.warn(`${key}config 不存在`)
       return undefined
     }

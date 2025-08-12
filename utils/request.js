@@ -1,6 +1,6 @@
 const app = getApp()
 export default function createRequest (options) {
-  return new Promise(res => {
+  return new Promise((resolve, reject) => {
     const token = wx.getStorageSync('token')
     if (options.needLogin !== false && !token) {
       wx.showToast({
@@ -33,7 +33,8 @@ export default function createRequest (options) {
       header,
       timeout: options.timeout || 20000,
       success (res) {
-        res == res.data
+        res = res.data
+        console.log('res', res.code)
         switch (res.code) {
           //正常信息，返回去
           case 0:
@@ -59,7 +60,7 @@ export default function createRequest (options) {
             break
           default:
             wx.showToast({
-              title: '请求失败，请稍后重试',
+              title: '请求失败，请稍后重试111',
               icon: 'none'
             })
             break
@@ -67,7 +68,7 @@ export default function createRequest (options) {
       },
       fail (err) {
         wx.showToast({
-          title: '请求失败，请稍后重试',
+          title: '请求失败，请稍后重试sss',
           icon: 'none'
         })
       },

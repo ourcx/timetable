@@ -1,0 +1,61 @@
+<!-- 顶部标题栏 -->
+<view class="header">
+    <!-- 成绩类型切换 -->
+    <view class="score-types">
+        <view bindtap="changeScoreType" data-type="1" class="score-type {{ type == 1 ? 'active' : '' }}">有效成绩</view>
+        <view bindtap="changeScoreType" data-type="2" class="score-type {{ type == 2 ? 'active' : '' }}">原始成绩</view>
+    </view>
+
+    <!-- 当前学期 -->
+    <view class="score-term">
+        <picker mode="selector" range="{{list}}" range-key="termName" value="{{termIndex}}"
+            bindchange="changeTerm">
+            {{list[termIndex].termName}}
+        </picker>
+    </view>
+</view>
+
+<!-- 成绩列表区域 -->
+<view class="score-list">
+    <!-- 学期标题 -->
+    <view class="term-name" wx:if="{{list.length > 0}}">
+        {{ list[termIndex].termName }}
+    </view>
+
+    <!-- 课程列表 -->
+    <view class="list">
+        <block wx:if="{{list.length > 0 && list[termIndex].scoreList}}">
+            <view class="score-item" wx:for="{{ list[termIndex].scoreList }}" wx:key="index">
+                <view class="course-name">
+                    <view>
+                        {{ item.name }}
+                    </view>
+                    <view class="raw-score__content" wx:if="{{type == 2}}">
+                        <view wx:if="{{item.normalScore}}">
+                            平时:{{item。normalScore}}
+                        </view>
+                        <view>
+                            <text wx:if="{{item.midtermScore}}">
+                                期中:{{item.midtermScore}}
+                            </text>
+                            <text wx:if="{{item.finalScore}}">
+                                期末：{{item.finalScore}}
+                            </text>
+
+                        </view>
+
+                    </view>
+                </view>
+                <view class="course-score {{item.score < 60 ? 'fail' : ''}}" wx:if="{{type == 1}}">
+                    {{ item.score }}
+                </view>
+                <view class="course-score {{item.score < 60 ? 'fail' : ''}}" wx:else>
+                    {{ item.complexScore }}
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="no-data">暂无成绩数据</view>
+        </block>
+    </view>
+</view>
