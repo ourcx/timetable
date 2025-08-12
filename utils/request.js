@@ -1,3 +1,4 @@
+const app = getApp()
 export default function createRequest (options) {
   return new Promise(res => {
     const token = wx.getStorageSync('token')
@@ -13,7 +14,7 @@ export default function createRequest (options) {
       }, 1500)
       return
     }
-    const baseUrl = 'https://localhost:3080'
+    const baseUrl =  app.getConfig("baseUrl")
     const url = baseUrl + options.url
     const header = { token }
     let showLoading = false

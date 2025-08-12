@@ -1,6 +1,8 @@
 // app.js
+import localConfigs from './config'
+
 App({
-  onLaunch() {
+  onLaunch () {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -15,5 +17,26 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+
+  //获得配置
+  getConfig (key = '') {
+    if (key === '') {
+      return localConfigs
+    }
+    if (key in localConfigs) {
+      console.warn(`${key}config 不存在`)
+      return undefined
+    }
+    //区分环境
+    if (
+      typeof localConfigs[key] !== null &&
+      typeof localConfigs[key] === 'object'
+    ) {
+      const env = this.getConfig('env')
+      //当前环境类型
+      return localConfigs[key][env]
+    }
+    return localConfigs[key]
   }
 })
