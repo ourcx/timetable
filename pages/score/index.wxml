@@ -8,10 +8,13 @@
 
     <!-- 当前学期 -->
     <view class="score-term">
-        <picker mode="selector" range="{{list}}" range-key="termName" value="{{termIndex}}"
-            bindchange="changeTerm">
-            {{list[termIndex].termName}}
+        <picker mode="selector" range="{{list}}" range-key="termName" value="{{termIndex}}" bindchange="changeTerm">
+            选择学期 <text class="cuIcon-uninfo"></text>
         </picker>
+    </view>
+    <view class="update-btn" bingtap="update">
+        <text class="cuIcon-refresh">
+        </text>
     </view>
 </view>
 
@@ -32,7 +35,7 @@
                     </view>
                     <view class="raw-score__content" wx:if="{{type == 2}}">
                         <view wx:if="{{item.normalScore}}">
-                            平时:{{item。normalScore}}
+                            平时:{{item.normalScore}}
                         </view>
                         <view>
                             <text wx:if="{{item.midtermScore}}">

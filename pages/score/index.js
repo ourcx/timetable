@@ -1,5 +1,9 @@
 // pages/score/score.js
 import { getScoreListRequest, getRawScoreListRequest } from '../../api/main'
+
+const scoreCacheKey = 'scores'
+const rawScoreCacheKey = 'rawscores'
+
 Page({
   data: {
     type: 1,
@@ -10,8 +14,18 @@ Page({
   onLoad(options) {
     this.getList();
   },
-  
   getList() {
+    const cache = wx.getStorageSync(this.data.type === 1 ? scoreCacheKey : rawScoreCacheKey)
+    if (cache) {
+      this.setData({
+        list: cache,
+      })
+      return
+    }
+    this.update()
+  },
+  
+  update() {
     const that = this;
     const { type } = this.data;
     
@@ -27,6 +41,7 @@ Page({
       that.setData({
         list: res.data || []  // 确保总是数组
       });
+      wx.setStorageSync(that.data.type == 1 ? scoreCacheKey : rawScoreCacheKey, res.data)
     }).catch(err => {
       console.error("成绩获取失败:", err);
     }).finally(() => {
