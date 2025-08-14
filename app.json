@@ -11,7 +11,11 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff",
-    "backgroundTextStyle":"light"
+    "backgroundTextStyle":"light",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom":"/style/colorui/components/cu-custom"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

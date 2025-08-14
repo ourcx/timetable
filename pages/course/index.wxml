@@ -1,2 +1,43 @@
-<!--pages/course/index.wxml-->
-<text>pages/course/index.wxml</text>
+<cu-custom bgColor="bg-white" customBack="{{true}}">
+    <view slot="backText">
+        <image src="/pubilc/course/image.png" mode="aspectFill" class="refresh-btn" />
+    </view>
+    <view slot="content">第一周 <text class="cuIcon-unfold">
+        </text>
+    </view>
+</cu-custom>
+<view class="container">
+    <view class="week-list">
+        <view class="now-month">
+            <text class="" selectable="false" space="false" decode="false">
+                05
+            </text>
+            <text class="" selectable="false" space="false" decode="false">
+                月
+            </text>
+        </view>
+        <view class="week-item" wx:for="{{7}}" wx:key="{{index}}">
+            <text class="week-name" selectable="false" space="false" decode="false">
+                周{{index+1}}
+            </text>
+            <text class="week-date" selectable="false" space="false" decode="false">
+                {{index+1}}日
+            </text>
+        </view>
+    </view>
+    <view class="course-content">
+        <view class="course-nums">
+            <view class="course-num" wx:for="{{12}}" wx::key="{{index}}">
+                {{index+1>9? index+1 : '0'+(index+1)}}
+            </view>
+        </view>
+        <view class="course-list">
+            <view class="course-item" wx:for="{{courseList}}" wx:key="{{index}}"
+                style="height:{{item.sectionCount*120}}rpx;top:{{(item.section-1)*120}}rpx;left:{{(item.week-1)*((windowWidth*2-50)/7)}}rpx">
+                <view class="course-item__content" style="background-color:{{item.color}};">
+                    {{ item.name }}@{{ item.address }}
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

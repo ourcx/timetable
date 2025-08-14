@@ -27,6 +27,10 @@ Component({
       type: String,
       default: ''
     },
+    custoBack:{
+      type: [Boolean, String],
+      default: false
+    }
   },
   /**
    * 组件的初始数据
