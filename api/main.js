@@ -23,3 +23,10 @@ export function getRawScoreListRequest(data){
         data
     })
 }
+
+export function getCourseListRequest(data){ 
+    return createRequest({
+        url:"/courses",
+        data
+    })
+}

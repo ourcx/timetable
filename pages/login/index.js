@@ -53,7 +53,11 @@ Page({
         })
         setTimeout(() => {
           wx.redirectTo({
-            url: '/pages/index/index'
+            url: '/pages/index/index',
+            fail: function (err) {
+              console.error('页面跳转失败:', err)
+              // 可以添加用户提示或备用处理逻辑
+            }
           })
         }, 1500)
         if (that.data.check) {

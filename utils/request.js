@@ -2,18 +2,18 @@ const app = getApp()
 export default function createRequest (options) {
   return new Promise((resolve, reject) => {
     const token = wx.getStorageSync('token')
-    // if (options.needLogin !== false && !token) {
-    //   wx.showToast({
-    //     title: '请先登录',
-    //     icon: 'none'
-    //   })
-    //   setTimeout(() => {
-    //     wx.navigateTo({
-    //       url: '/pages/login/index'
-    //     })
-    //   }, 1500)
-    //   return
-    // }
+    if (options.needLogin !== false && !token) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      setTimeout(() => {
+        wx.navigateTo({
+          url: '/pages/login/index'
+        })
+      }, 1500)
+      return
+    }
     const baseUrl =  app.getConfig("baseUrl")
     const url = baseUrl + options.url
     const header = { token }

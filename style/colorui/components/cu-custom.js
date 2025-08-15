@@ -16,7 +16,7 @@ Component({
       default: ''
     }, 
     isCustom: {
-      type: Boolean ,
+      type: [Boolean, String],
       default: false
     },
     isBack: {
@@ -27,10 +27,10 @@ Component({
       type: String,
       default: ''
     },
-    custoBack:{
+    customBack: {
       type: [Boolean, String],
       default: false
-    }
+    },
   },
   /**
    * 组件的初始数据
@@ -45,6 +45,10 @@ Component({
    */
   methods: {
     BackPage() {
+      if (this.properties.customBack) {
+        this.triggerEvent('back')
+        return
+      }
       wx.navigateBack({
         delta: 1
       });

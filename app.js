@@ -3,12 +3,13 @@ import localConfigs from './config'
 
 App({
   onLaunch () {
-     wx.getSystemInfo({
+    wx.getSystemInfo({
       success: e => {
-        this.globalData.StatusBar = e.statusBarHeight;
-        let custom = wx.getMenuButtonBoundingClientRect();
-        this.globalData.Custom = custom;
-        this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
+        this.globalData.StatusBar = e.statusBarHeight
+        let custom = wx.getMenuButtonBoundingClientRect()
+        this.globalData.Custom = custom
+        this.globalData.CustomBar =
+          custom.bottom + custom.top - e.statusBarHeight
       }
     })
   },
