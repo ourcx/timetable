@@ -16,7 +16,7 @@ Component({
       default: ''
     }, 
     isCustom: {
-      type: [Boolean, String],
+      type: Boolean ,
       default: false
     },
     isBack: {

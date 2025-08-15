@@ -2,7 +2,7 @@
     <view slot="backText">
         <image src="/pubilc/course/image.png" mode="aspectFill" class="refresh-btn" />
     </view>
-    <view slot="content">第一周 <text class="cuIcon-unfold">
+    <view slot="content" bindtap="selectWeek">第{{nowWeek}}周 <text class="cuIcon-unfold">
         </text>
     </view>
 </cu-custom>
@@ -10,19 +10,18 @@
     <view class="week-list">
         <view class="now-month">
             <text class="" selectable="false" space="false" decode="false">
-                05
-            </text>
-            <text class="" selectable="false" space="false" decode="false">
-                月
-            </text>
+                {{nowMonth<10?'0'+nowMonth:nowMonth}} </text>
+                    <text class="" selectable="false" space="false" decode="false">
+                        月
+                    </text>
         </view>
-        <view class="week-item" wx:for="{{7}}" wx:key="{{index}}">
+        <view class="week-item" wx:for="{{weekDayCount}}" wx:key="index">
             <text class="week-name" selectable="false" space="false" decode="false">
-                周{{index+1}}
+                周{{weekIndexText[index]}}
             </text>
             <text class="week-date" selectable="false" space="false" decode="false">
-                {{index+1}}日
-            </text>
+                {{weekCalendar[index]==1?(nowMonth==12?1:(nowMonth+1)+'月'):(weekCalendar[index]<9 ? '0' +
+                    weekCalendar[index] : weekCalendar[index])}} </text>
         </view>
     </view>
     <view class="course-content">
@@ -41,3 +40,14 @@
         </view>
     </view>
 </view>
+<van-popup show="{{showSwitchWeek}}" position="bottom" bind:close="hideSwitchWeek" round>
+    <view class="switch-week__popup">
+        <view class="switch-week__title">切换周数</view>
+        <view class="switch-week__list">
+            <view class="switch-week__item" wx:for="{{totalWeek}}" wx:key>
+                <view bindtap="switchWeek" data-week="{{item+1}}"
+                    class="switch-week__item-box {{nowWeek == index + 1 ? 'active' : ''}}">{{item + 1}}</view>
+            </view>
+        </view>
+    </view>
+</van-popup>

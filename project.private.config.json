@@ -12,8 +12,8 @@
           "name": "课表",
           "pathName": "pages/course/index",
           "query": "",
-          "launchMode": "default",
-          "scene": null
+          "scene": null,
+          "launchMode": "default"
         },
         {
           "name": "查成绩",
@@ -31,5 +31,6 @@
         }
       ]
     }
-  }
+  },
+  "libVersion": "3.8.6"
 }

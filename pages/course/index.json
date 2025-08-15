@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "cu-custom": "/style/colorui/components/cu-custom",
+    "van-popup": "@vant/weapp/popup/index"
+  }
 }
