@@ -1,23 +1,33 @@
+<wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <cu-custom bgColor="bg-white">
   <view slot="content"> </view>
 </cu-custom>
 <view class="container">
   <view class="logo">
-    <image  src="/pubilc/logo@2x.png" mode="aspectFill"/>
+    <image src="/pubilc/logo@2x.png" mode="aspectFill" />
   </view>
   <view class="nav-list">
     <view class="nav-item" wx:for="{{navList}}" wx:key="index" bindtap="nav" data-index="{{index}}">
-      <image src="{{item.icon}}" mode="aspectFill" class="nav-icon"/>
+      <image src="{{item.icon}}" mode="aspectFill" class="nav-icon" />
       <text class="nav-text">{{item.title}}</text>
     </view>
   </view>
   <view class="today-course">
     <view class="option-title">今日课表</view>
-    <view class="option-time">15 周 周一</view>
+    <view class="option-time">第{{todayWeeks}} 周 周{{tools.getWeekText(todayWeek)}}</view>
     <view class="course-box">
-      <image src="/pubilc/image.png" mode="aspectFill" class="empty-img"/>
-      <view class="empty-title">今天还没有课哦~去充实一下自己吧</view>
+      <block wx:if="{{todayCourseList.length==0}}">
+        <image src="/pubilc/image.png" mode="aspectFill" class="empty-img" />
+        <view class="empty-title">今天还没有课哦~去充实一下自己吧</view>
+      </block>
+      <block wx:else>
+        <view class="course-list">
+          <view class="course-item" wx:for="{{todayCourseList}}" wx:key="num">
+            <view class="course-name">{{item.name}}</view>
+            <view class="course-address">{{item.address ? item.address : '未知'}}</view>
+          </view>
+        </view>
+      </block>
     </view>
   </view>
 </view>
-  

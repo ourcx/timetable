@@ -1,7 +1,7 @@
 <wxs src="../../utils/tools.wxs" module="tools"></wxs>
 <cu-custom bgColor="bg-white" customBack="{{true}}" bind:back="update">
     <view slot="backText">
-        <image bindtap="update" class="refresh-btn" src="/asset/imgs/refresh.png" mode="aspectFill"></image>
+        <image bindtap="update" class="refresh-btn" src="../../pubilc//course/image.png" mode="aspectFill"></image>
     </view>
     <view slot="content">
         <view bindtap="selectWeek"><text>第{{nowWeek}}周</text> <text class="cuIcon-unfold"></text></view>

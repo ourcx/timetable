@@ -157,3 +157,30 @@ page {
   color: #a0a0a0;
   margin-top: 0; /* Replaced by 'gap' in the parent container */
 }
+
+
+
+
+.course-list {
+  width: 100%;
+}
+
+.course-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.course-item:not(:last-child) {
+  border-bottom: 1rpx solid #f6f6f6;
+}
+
+.course-name {
+  color: #3D3D3D;
+}
+
+.course-address {
+  font-size: 24rpx;
+  color: #838383;
+}

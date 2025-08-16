@@ -32,7 +32,9 @@ Page({
       '#FFDCDC',
       '#FFD586'
     ],
-    courseColor: {}
+    courseColor: {},
+    weekCalendar: [1, 2, 3, 4, 5, 6, 7],
+    firstEntry: true,
   },
   onLoad (option) {
     const { windowWidth } = wx.getSystemInfoSync()
@@ -42,6 +44,14 @@ Page({
     this.getWeekDates()
     this.getNowWeek()
     this.getData()
+    this.getTodayDate()
+    const week = wx.getStorageSync('todayWeeks')
+    this.setData({
+
+    })
+    if(week){
+      this.switchWeekFn(week)
+    }
   },
   switchWeek (e) {
     const week = e.currentTarget.dataset.week
@@ -109,11 +119,11 @@ Page({
     const courseColor = wx.getStorageSync(courseColorKey)
     if (cache) {
       that.setData({
-        courseList: cache,
+        courseList: cache
       })
-      if(!courseColor){
+      if (!courseColor) {
         this.buildCourseColor()
-      }else{
+      } else {
         this.setData({
           courseColor: courseColor
         })
@@ -134,10 +144,16 @@ Page({
     })
   },
   swiperSwitchWeek (event) {
+    if(event.detail.source == ''){
+      this.setData({
+        firstEntry: false
+      })
+      return
+    }
     const index = event.detail.current
     this.switchWeekFn(index + 1)
   },
-  buildCourseColor() {
+  buildCourseColor () {
     const courseColor = {}
     let colorIndex = 0
     this.data.courseList.map(item => {
@@ -151,4 +167,17 @@ Page({
       courseColor
     })
   },
+  getTodayDate () {
+    const { month: todayMonth,day:todayDay } = this.getDateObject()
+    this.setData({
+      todayMonth,
+      todayDay
+    })
+  },
+  navCourseDetail(e){
+    const index = e.currentTarget.dataset.index
+    wx.navigateTo({
+      url:`/pages/course-info/index?info=${JSON.stringify(this.data.courseList[index])}`,
+    })
+  }
 })

@@ -5,17 +5,18 @@
     "pages/login/index",
     "pages/score/index",
     "pages/course/index",
-    "pages/mine/index"
+    "pages/mine/index",
+    "pages/course-info/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
     "navigationBarBackgroundColor": "#ffffff",
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationStyle": "custom"
   },
   "usingComponents": {
-    "cu-custom":"/style/colorui/components/cu-custom",
+    "cu-custom": "/style/colorui/components/cu-custom",
     "van-popup": "@vant/weapp/popup/index"
   },
   "componentFramework": "glass-easel",

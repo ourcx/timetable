@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-white">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
     <view slot="backText"></view>
   <view slot="content">成绩查询</view>
 </cu-custom>
