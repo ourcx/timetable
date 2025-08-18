@@ -6,7 +6,8 @@
     "pages/score/index",
     "pages/course/index",
     "pages/mine/index",
-    "pages/course-info/index"
+    "pages/course-info/index",
+    "pages/attendance/index"
   ],
   "window": {
     "navigationBarTextStyle": "black",

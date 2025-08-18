@@ -1,2 +1,29 @@
-<!--pages/mine/index.wxml-->
-<text>pages/mine/index.wxml</text>
+<cu-custom bgColor="bg-custom">
+    <view slot="content">
+        <view><text>我的</text></view>
+    </view>
+</cu-custom>
+
+<view class="mine-main">
+    <!-- <view data-weui-theme="{{theme}}">
+
+        <form catchsubmit="formSubmit">
+
+            <button type="primary" style="margin-top: 40rpx;margin-bottom: 20rpx;" form-type="submit">提交</button>
+        </form>
+    </view> -->
+    <view class="user-container">
+        <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+            <van-image round width="3.5rem" height="3.5rem" src="{{avatarUrl}}" lazy-load
+                class="user-avatar__container avatar" />
+        </button>
+        <view class="row">
+            <view class="user-name__container">昵称：</view>
+            <input type="nickname" class="weui-input" name="nickname" placeholder="请输入昵称" />
+        </view>
+        <view class="user-container__bg"></view>
+    </view>
+    <view class="user-container__content">
+        ssssssssssssssssssssssss
+    </view>
+</view>

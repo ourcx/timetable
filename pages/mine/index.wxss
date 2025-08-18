@@ -1,1 +1,67 @@
 /* pages/mine/index.wxss */
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 50%;
+  /* 透明 */
+  /* margin-top: 40px;
+  margin-bottom: 40px; */
+  background-color: #ffffff00;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.container {
+  display: flex;
+}
+.row {
+  border-bottom: 1px solid #b5b5b5;
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  padding-left: 20rpx;
+}
+.weui-input {
+  flex: 6;
+}
+
+.bg-custom {
+  background-color: #3d8a8b !important;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  background-color: #3d8a8b;
+}
+
+.user-name__container,
+.user-avatar__container,
+.avatar-wrapper,
+.row {
+  z-index: 1000;
+}
+.user-name__container {
+  font-size: 500;
+  font-weight: 700;
+  color: rgba(77, 77, 77, 0.7);
+}
+
+.user-container__bg {
+  position: absolute;
+  width: 100vw;
+  top: 290rpx;
+  height: 150rpx;
+  background-color: #f1f1f1;
+  z-index: 1;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+}
